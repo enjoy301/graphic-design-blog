@@ -69,10 +69,4 @@
 .content {
   aspect-ratio: 1;
   border-top: 2px solid black;
-  overflow-y: scroll;
-  display: grid;
-  grid-template-columns: 50% 50%;
-  grid-template-rows: 50% 50%;
-  grid-auto-columns: 50% 50%;
-  grid-auto-rows: 50% 50%;
 }
