@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Root, Home, About, Contact, Post, Error } from "./pages";
+import { Root, Home, About, Contact, Post, Error, Write } from "./pages";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +28,10 @@ const router = createBrowserRouter([
   {
     path: "/posts/:postId",
     element: <Post />,
+  },
+  {
+    path: "/write",
+    element: <Write />,
   },
 ]);
 
