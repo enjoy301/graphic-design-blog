@@ -1,8 +1,33 @@
 import home_icon from "../images/home-icon.png";
-import post_image from "../images/post-image.png";
 import * as S from "../components/Post/style";
+import { MarkdownRenderer } from "../components/Post/markdown-renderer";
 
 export default function Post() {
+  const markdown = `
+  # Hello,sdfworld!abcdefghijklmnopqrstuvwxyzabcdefsdfa
+
+  ![Github_Logo](https://img.freepik.com/premium-vector/summer-seascape-beach-and-ocean-illustration_71599-2676.jpg)  
+
+  This is my first blog post.
+  I hope you like it!
+
+  ## This is a subtitle
+  ### This is a smaller subtitle
+
+  * kiki1
+  * kiki2
+  
+  # asdf
+
+  # asdf
+  # asdf
+  # asdf
+  # asdf
+  # asdf
+  # asdf
+  # asdf
+  `;
+
   return (
     <S.Container>
       <S.Header>
@@ -23,24 +48,7 @@ export default function Post() {
         </S.AbstractAuthorBox>
       </S.AbstractBox>
       <S.Article>
-        <S.ArticleText>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, wh
-        </S.ArticleText>
-        <S.ArticleImage src={post_image} alt="post_image" />
-        <S.ArticleText>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, wh
-        </S.ArticleText>
-        <S.ArticleImage src={post_image} alt="post_image" />
-        <S.ArticleText>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, wh
-        </S.ArticleText>
-        <S.ArticleImage src={post_image} alt="post_image" />
+        <MarkdownRenderer>{markdown}</MarkdownRenderer>
       </S.Article>
     </S.Container>
   );
