@@ -1,20 +1,12 @@
-import styled from "styled-components";
-
-const MainTitle = styled.h1`
-  color: black;
-`;
-
-const PlainText = styled.p`
-  color: black;
-`;
+import * as S from "../components/About/style";
 
 export default function About() {
   return (
-    <div style={{ margin: "10px" }}>
-      <MainTitle>Seobin Yoon</MainTitle>
-      <PlainText>10. 09. 2001</PlainText>
-      <PlainText>Visual Design, Pusan National University</PlainText>
-      <PlainText>
+    <S.AboutBox>
+      <S.Title>Seobin Yoon</S.Title>
+      <S.Date>10. 09. 2001</S.Date>
+      <S.Belong>Visual Design, Pusan National University</S.Belong>
+      <S.Description>
         Lorem Ipsum is simply dummy text of the printing and typesetting
         industry. Lorem Ipsum has been the industry's standard dummy text ever
         since the 1500s, when an unknown printer took a galley of type and
@@ -26,7 +18,7 @@ export default function About() {
         of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and
         typesetting industry. Lorem Ipsum has been the industry's standard dummy
         text ever since the 1500s.
-      </PlainText>
-    </div>
+      </S.Description>
+    </S.AboutBox>
   );
 }
