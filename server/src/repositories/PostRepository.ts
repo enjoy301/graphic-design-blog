@@ -5,7 +5,7 @@ import { Service } from "typedi";
 
 @Service()
 export class PostRepository extends Repository<Post> {
-  public async getPosts() {
+  public async getPosts(): Promise<string> {
     return "hihi";
     // return MysqlDataSource.createQueryBuilder(Post, "post")
     //   .select([

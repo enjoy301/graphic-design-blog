@@ -1,9 +1,10 @@
 import "reflect-metadata";
 import express from "express";
-import { useExpressServer } from "routing-controllers";
+import { useContainer, useExpressServer } from "routing-controllers";
 import { routingControllerOptions } from "./utils/RoutingConfig";
 import bodyParser from "body-parser";
 import { MysqlDataSource } from "./database";
+import Container from "typedi";
 
 export class App {
   public app: express.Application;
@@ -15,13 +16,13 @@ export class App {
   }
 
   private setDatabase() {
-    MysqlDataSource.initialize()
-      .then(() => {
-        console.log("Data Source has been initialized!");
-      })
-      .catch((err) => {
-        console.error("Error during Data Source initialization");
-      });
+    // MysqlDataSource.initialize()
+    //   .then(() => {
+    //     console.log("Data Source has been initialized!");
+    //   })
+    //   .catch((err) => {
+    //     console.error("Error during Data Source initialization");
+    //   });
   }
 
   private setMiddlewares() {
@@ -31,6 +32,7 @@ export class App {
 
   public async createExpressServer(port: number) {
     try {
+      useContainer(Container);
       useExpressServer(this.app, routingControllerOptions);
 
       this.app.listen(port, () => {

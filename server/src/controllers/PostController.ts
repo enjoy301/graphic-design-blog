@@ -8,18 +8,20 @@ import {
   Post,
   Res,
 } from "routing-controllers";
-import Container from "typedi";
+import Container, { Inject, Service } from "typedi";
 import { CreatePostDTO } from "../dtos/PostDTO";
 import { PostService } from "../services/PostService";
 
+@Service()
 @JsonController()
 export class PostController {
-  constructor() {}
+  @Inject()
+  private postService: PostService;
 
   @HttpCode(200)
   @Get("/posts")
   public async getAll() {
-    const c = await Container.get(PostService).getPosts();
+    const c = await this.postService.getPosts();
     console.log(c);
     return "This action returns all posts";
   }
