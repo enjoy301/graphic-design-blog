@@ -16,13 +16,14 @@ export class App {
   }
 
   private setDatabase() {
-    // MysqlDataSource.initialize()
-    //   .then(() => {
-    //     console.log("Data Source has been initialized!");
-    //   })
-    //   .catch((err) => {
-    //     console.error("Error during Data Source initialization");
-    //   });
+    MysqlDataSource.initialize()
+      .then(() => {
+        console.log("Data Source has been initialized!");
+      })
+      .catch((err) => {
+        console.error("Error during Data Source initialization");
+        console.error(err);
+      });
   }
 
   private setMiddlewares() {
