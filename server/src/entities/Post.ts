@@ -10,19 +10,19 @@ import {
 @Entity({ name: "post" })
 export class Post {
   @PrimaryGeneratedColumn("uuid")
-  id: string = "";
+  id: string;
 
   @IsNotEmpty()
   @Column()
-  title: string = "";
+  title: string;
 
   @IsNotEmpty()
   @Column({ type: "text" })
-  content: string = "";
+  content: string;
 
   @CreateDateColumn({ name: "created_at" })
-  createdAt: Date = new Date();
+  createdAt: Date;
 
   @UpdateDateColumn({ name: "updated_at" })
-  updatedAt: Date = new Date();
+  updatedAt: Date;
 }
