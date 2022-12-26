@@ -9,4 +9,5 @@ export const MysqlDataSource = new DataSource({
   password: env.db.password,
   database: env.db.database,
   entities: [__dirname + "/entities/*{.ts,.js}"],
+  synchronize: true,
 });
