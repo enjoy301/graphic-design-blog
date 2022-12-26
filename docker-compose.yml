@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  react:
+    stdin_open: true
+    tty: true
+    container_name: graphic-blog-client
+    build:
+      context: .
+      dockerfile: ./client/Dockerfile.dev
+    ports:
+      - 3000:3000
+    volumes:
+      - ./client/src:/app/src:ro
+
+  server:
+    stdin_open: true
+    tty: true
+    container_name: graphic-blog-server
+    build:
+      context: .
+      dockerfile: ./server/Dockerfile.dev
+    ports:
+      - 3001:3001
+    volumes:
+      - ./server/src:/app/src:ro

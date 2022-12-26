@@ -4,10 +4,10 @@ WORKDIR /app
 
 COPY ./server/package.json .
 
-RUN yarn install
+RUN npm install
 
-COPY ./client .
+COPY ./server .
 
-EXPOSE 3000
+EXPOSE 3001
 
-CMD ["yarn", "start"]
+CMD ["npm", "run", "start"]
