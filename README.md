@@ -9,7 +9,7 @@
 - [x] Database ORM 연결
 - [x] Front-End Design
 - [x] Markdown Rendering
-- [ ] Post CRUD
+- [x] Post CRUD
 - [ ] 이미지 업로드
 - [ ] 댓글
 - [ ] Admin Page
@@ -83,3 +83,18 @@ server
     └── utils                     # Utilities
         └── RoutingConfig.ts
 ```
+
+## 궁금한 점
+
+---
+
+- server와 client 부분 Dockerfile이 중복되는 부분이 많은데, 이 부분을 어떻게 해결할 수 있을까요?
+
+- server와 client 부분을 각각 Dockerfile을 만들어서 빌드하고, docker-compose를 통해 두 컨테이너를 연결하는 방식으로 구현했는데, 이 방식이 맞는지 궁금합니다.
+
+- Dockerfile npm install 부분 시간이 오래 걸리는데, 이 부분을 어떻게 해결할 수 있을까요?
+
+- Backend에서 오류를 확인했을 때 200으로 응답을 보내고 에러 메시지를 body에 담아서 보내는 방식이 맞는지, 400으로 응답을 보내는 방식이 맞는지 궁금합니다.
+
+- Frontend에서 반응형을 구현할 때, 다른 css가 적용되는 부분의 기준이 있는지 궁금합니다
+  ex) min-height 2000px 이상일 땐 빨간색, 아닐땐 파란색에서 "2000px" 같은 것.
