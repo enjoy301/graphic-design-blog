@@ -1,11 +1,13 @@
 import { Response } from "express";
 import {
   Body,
+  Delete,
   Get,
   HttpCode,
   JsonController,
   Param,
   Post,
+  Put,
   Res,
 } from "routing-controllers";
 import Container, { Inject, Service } from "typedi";
@@ -21,26 +23,40 @@ export class PostController {
   @HttpCode(200)
   @Get("/posts")
   public async getAll() {
-    const c = await this.postService.getPosts();
-    console.log(c);
-    return "This action returns all posts";
+    const posts = await this.postService.getPosts();
+    return posts;
   }
 
   @HttpCode(200)
-  @Get("/posts/:id")
-  getOne(@Param("id") id: number, @Res() res: Response) {
-    if (id === 1) {
-      return res.status(404).send({ message: "Post not found" });
+  @Get("/posts/:uuid")
+  async getOne(@Param("uuid") uuid: string, @Res() res: Response) {
+    const post = await this.postService.getPost(uuid);
+
+    if (!post) {
+      return res.status(404).send("Post not found");
     }
 
-    return "This action returns one post";
+    return post;
   }
 
   @HttpCode(201)
   @Post("/posts")
-  post(@Body() post: CreatePostDTO) {
-    console.log(post.title);
-    console.log(post.content);
+  async post(@Body() post: CreatePostDTO) {
+    await this.postService.createPost(post);
     return "Saving post...";
+  }
+
+  @HttpCode(200)
+  @Put("/posts/:uuid")
+  async update(@Param("uuid") uuid: string, @Body() post: CreatePostDTO) {
+    await this.postService.updatePost(uuid, post);
+    return "Updating a post...";
+  }
+
+  @HttpCode(200)
+  @Delete("/posts/:uuid")
+  async delete(@Param("uuid") uuid: string) {
+    await this.postService.deletePost(uuid);
+    return "Removing post...";
   }
 }
