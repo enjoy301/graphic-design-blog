@@ -1,38 +1,22 @@
 import * as S from "../components/Posts/style";
+import { useQuery } from "react-query";
 
 export default function Home() {
+  const { status, data } = useQuery("posts", () =>
+    fetch("http://localhost:3001/api/posts").then((res) => res.json())
+  );
+
   return (
     <S.PostsContainer>
-      <S.PostLink to="/">
-        <S.PostBox src="https://img.freepik.com/premium-vector/summer-seascape-beach-and-ocean-illustration_71599-2676.jpg">
-          <S.Title>원투쓰리포파입싯스</S.Title>
-          <S.Subtitle>나~~인텐! 딱 10cm만</S.Subtitle>
-        </S.PostBox>
-      </S.PostLink>
-      <S.PostLink to="/">
-        <S.PostBox src="https://img.freepik.com/premium-vector/summer-seascape-beach-and-ocean-illustration_71599-2676.jpg">
-          <S.Title>원투쓰리포파입싯스</S.Title>
-          <S.Subtitle>나~~인텐! 딱 10cm만</S.Subtitle>
-        </S.PostBox>
-      </S.PostLink>
-      <S.PostLink to="/">
-        <S.PostBox src="https://img.freepik.com/premium-vector/summer-seascape-beach-and-ocean-illustration_71599-2676.jpg">
-          <S.Title>원투쓰리포파입싯스</S.Title>
-          <S.Subtitle>나~~인텐! 딱 10cm만</S.Subtitle>
-        </S.PostBox>
-      </S.PostLink>
-      <S.PostLink to="/">
-        <S.PostBox src="https://img.freepik.com/premium-vector/summer-seascape-beach-and-ocean-illustration_71599-2676.jpg">
-          <S.Title>원투쓰리포파입싯스</S.Title>
-          <S.Subtitle>나~~인텐! 딱 10cm만</S.Subtitle>
-        </S.PostBox>
-      </S.PostLink>
-      <S.PostLink to="/">
-        <S.PostBox src="https://img.freepik.com/premium-vector/summer-seascape-beach-and-ocean-illustration_71599-2676.jpg">
-          <S.Title>원투쓰리포파입싯스</S.Title>
-          <S.Subtitle>나~~인텐! 딱 10cm만</S.Subtitle>
-        </S.PostBox>
-      </S.PostLink>
+      {status === "success" &&
+        data.map((post: any) => (
+          <S.PostLink to={`/posts/${post.id}`} key={post.id}>
+            <S.PostBox src="https://img.freepik.com/premium-vector/summer-seascape-beach-and-ocean-illustration_71599-2676.jpg">
+              <S.Title>{post.title}</S.Title>
+              <S.Subtitle>{post.content}</S.Subtitle>
+            </S.PostBox>
+          </S.PostLink>
+        ))}
     </S.PostsContainer>
   );
 }
