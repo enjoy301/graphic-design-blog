@@ -2,6 +2,30 @@
 
 ---
 
+## Installation
+
+---
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/enjoy301/graphic-design-blog.git
+```
+
+### 2. .env 파일 생성
+
+/server/src/config/.env.sample 파일을 참고하여 .env 파일 생성
+
+### 3. Docker, Docker Compose 설치
+
+[docker docs - Get Docker](https://docs.docker.com/get-docker/)
+
+### 4. Docker Compose 실행
+
+```bash
+docker-compose up -d
+```
+
 ## Roadmap
 
 ---
@@ -43,18 +67,18 @@
 
 ```bash
 client
-├── Dockerfile.dev            # Dockerfile for development
-├── docker-compose.yml        # Docker compose for development
+├── Dockerfile.dev                   # Dockerfile for development
+├── docker-compose.yml               # Docker compose for development
 └── src
-    ├── index.tsx             # Entry point
-    ├── components            # 컴포넌트 디렉토리
-    │   └── Root              # 컴포넌트는 Page 단위로 관리
-    │   │   └── style.ts      # Styled-components
+    ├── index.tsx                    # Entry point
+    ├── components                   # 컴포넌트 디렉토리
+    │   └── Root                     # 컴포넌트는 Page 단위로 관리
+    │   │   └── style.ts             # Styled-components
     │   └── ...
-    ├── hooks                 # Custom Hooks
-    ├── images                # 이미지
-    └── pages                 # Page 단위로 관리
-        ├── root.tsx          # Root Page
+    ├── hooks                        # Custom Hooks
+    ├── images                       # 이미지
+    └── pages                        # Page 단위로 관리
+        ├── root.tsx                 # Root Page
         └── ...
 ```
 
@@ -62,25 +86,25 @@ client
 
 ```bash
 server
-├── nodemon.json                  # Nodemon 설정
+├── nodemon.json                     # Nodemon 설정
 └── src
-    ├── app.ts                    # Express 설정
-    ├── database.ts               # Database 설정
-    ├── env.ts                    # 환경변수 쉽게 사용하기
-    ├── server.ts                 # Entry point
-    ├── config                    # 환경변수 디렉토리
-    ├── controllers               # Controller Classes
+    ├── app.ts                       # Express 설정
+    ├── database.ts                  # Database 설정
+    ├── env.ts                       # 환경변수 쉽게 사용하기
+    ├── server.ts                    # Entry point
+    ├── config                       # 환경변수 디렉토리
+    ├── controllers                  # Controller Classes
     │   └── PostController.ts
-    ├── dtos                      # Data Transfer Object
+    ├── dtos                         # Data Transfer Object
     │   └── PostDTO.ts
-    ├── entities                  # Entities
+    ├── entities                     # Entities
     │   └── Post.ts
-    ├── middlewares               # Node Middlewares
-    ├── repositories              # Repositories
+    ├── middlewares                  # Node Middlewares
+    ├── repositories                 # Repositories
     │   └── PostRepository.ts
-    ├── services                  # Buissness Logic
+    ├── services                     # Buissness Logic
     │   └── PostService.ts
-    └── utils                     # Utilities
+    └── utils                        # Utilities
         └── RoutingConfig.ts
 ```
 
