@@ -12,7 +12,7 @@ export const Container = styled.div`
 
 export const Header = styled.div`
   padding: 0 20px;
-  height: 10%;
+  height: 8%;
   font-weight: bold;
   font-size: 36px;
   display: flex;
@@ -21,7 +21,7 @@ export const Header = styled.div`
 
 export const Body = styled.div`
   display: flex;
-  height: 90%;
+  height: 92%;
   width: 100%;
 `;
 
@@ -40,7 +40,7 @@ export const HeaderText = styled.p``;
 
 export const HeaderLink = styled(NavLink)`
   display: block;
-  marginleft: auto;
+  margin-left: auto;
   width: auto;
   height: 60%;
 `;
@@ -71,15 +71,21 @@ export const MenuBox = styled.div`
 `;
 
 export const MenuLink = styled(NavLink)`
-  display: block;
+  display: flex;
   text-decoration: none;
   color: black;
+  border-bottom: 1px solid black;
+  height: 40px;
+  item-align: center;
+  align-items: center;
   &.active {
     background-color: rgba(242, 228, 191, 0.79);
   }
 `;
 
-export const MenuText = styled.p``;
+export const MenuText = styled.div`
+  margin: 0 0 0 10px;
+`;
 
 export const LogoBox = styled.div`
   height: 10%;

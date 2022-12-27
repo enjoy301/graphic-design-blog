@@ -28,6 +28,7 @@ export const PostBox = styled.div<{ src: string }>`
     url(${({ src }) => src});
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -35,7 +36,7 @@ export const PostBox = styled.div<{ src: string }>`
   -moz-transition: background-size 3s ease;
   -web-kit-transition: background-size 3s ease;
   :hover {
-    background-size: 110%;
+    text-decoration: underline;
   }
 `;
 
