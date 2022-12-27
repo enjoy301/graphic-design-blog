@@ -11,9 +11,9 @@ export default function Home() {
       {status === "success" &&
         data.map((post: any) => (
           <S.PostLink to={`/posts/${post.id}`} key={post.id}>
-            <S.PostBox src="https://img.freepik.com/premium-vector/summer-seascape-beach-and-ocean-illustration_71599-2676.jpg">
+            <S.PostBox src={post.thumbnail}>
               <S.Title>{post.title}</S.Title>
-              <S.Subtitle>{post.content}</S.Subtitle>
+              <S.Subtitle>{post.subtitle}</S.Subtitle>
             </S.PostBox>
           </S.PostLink>
         ))}

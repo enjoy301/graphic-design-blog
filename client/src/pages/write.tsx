@@ -1,20 +1,36 @@
 import { ChangeEvent, useState } from "react";
+import { useMutation } from "react-query";
 import * as S from "../components/Write/style";
 
 export default function Write() {
   const [title, setTitle] = useState("");
-  const [body, setBody] = useState("");
+  const [content, setContent] = useState("");
+
+  const mutation = useMutation(
+    (data: { title: string; subtitle: string; content: string }) =>
+      fetch("http://localhost:3001/api/posts", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+  );
 
   const handleTitleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setTitle(e.target.value);
   };
 
-  const handleBodyChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
-    setBody(e.target.value);
+  const handleContentChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    setContent(e.target.value);
   };
 
   const handleClick = () => {
-    console.log(`${title} ${body}`);
+    mutation.mutate({ title, subtitle: "temp subtitle", content });
+
+    if (mutation.isSuccess) {
+      alert("작성이 완료되었습니다.");
+    }
   };
 
   return (
@@ -28,8 +44,8 @@ export default function Write() {
       </S.Header>
       <S.Body>
         <S.MarkdownInput
-          value={body}
-          onChange={handleBodyChange}
+          value={content}
+          onChange={handleContentChange}
           placeholder="마크다운을 입력하세요."
         />
       </S.Body>
