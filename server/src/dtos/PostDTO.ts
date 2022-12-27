@@ -1,9 +1,15 @@
-import { IsNotEmpty } from "class-validator";
+import { IsNotEmpty, IsOptional } from "class-validator";
 
 export class CreatePostDTO {
   @IsNotEmpty()
-  public title: string;
+  title: string;
 
   @IsNotEmpty()
-  public content: string;
+  subtitle: string;
+
+  @IsOptional()
+  thumbnail: string;
+
+  @IsNotEmpty()
+  content: string;
 }

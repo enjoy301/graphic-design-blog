@@ -1,4 +1,4 @@
-import { Repository } from "typeorm";
+import { InsertResult, Repository } from "typeorm";
 import { MysqlDataSource } from "../database";
 import { Post } from "../entities/Post";
 import { Service } from "typedi";
@@ -11,26 +11,29 @@ export class PostRepository extends Repository<Post> {
       .select([
         "post.id",
         "post.title",
-        "post.content",
-        "post.createdAt",
+        "post.subtitle",
+        "post.thumbnail",
         "post.updatedAt",
       ])
+      .orderBy("post.updatedAt", "DESC")
       .getMany();
   }
 
   public async getPost(uuid: string): Promise<Post | null> {
     return MysqlDataSource.createQueryBuilder(Post, "post")
-      .select(["post.id", "post.title", "post.content"])
+      .select(["post.id", "post.title", "post.content", "post.updatedAt"])
       .where("post.id = :uuid", { uuid })
       .getOne();
   }
 
-  public async createPost(postDTO: CreatePostDTO) {
+  public async createPost(postDTO: CreatePostDTO): Promise<InsertResult> {
     return MysqlDataSource.createQueryBuilder(Post, "post")
       .insert()
       .into(Post)
       .values({
         title: postDTO.title,
+        subtitle: postDTO.subtitle,
+        thumbnail: postDTO.thumbnail,
         content: postDTO.content,
       })
       .execute();

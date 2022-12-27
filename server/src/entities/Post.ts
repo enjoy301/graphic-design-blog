@@ -1,4 +1,4 @@
-import { IsNotEmpty } from "class-validator";
+import { IsNotEmpty, IsOptional } from "class-validator";
 import {
   Column,
   CreateDateColumn,
@@ -15,6 +15,14 @@ export class Post {
   @IsNotEmpty()
   @Column()
   title: string;
+
+  @IsNotEmpty()
+  @Column()
+  subtitle: string;
+
+  @IsOptional()
+  @Column()
+  thumbnail: string;
 
   @IsNotEmpty()
   @Column({ type: "text" })

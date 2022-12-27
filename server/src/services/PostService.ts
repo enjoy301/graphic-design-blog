@@ -21,6 +21,11 @@ export class PostService {
   }
 
   public async createPost(postDTO: CreatePostDTO): Promise<UpdateResult> {
+    if (postDTO.thumbnail === undefined) {
+      postDTO.thumbnail =
+        "https://img.freepik.com/premium-vector/summer-seascape-beach-and-ocean-illustration_71599-2676.jpg";
+    }
+
     return await this.postRepository.createPost(postDTO);
   }
 
