@@ -1,4 +1,6 @@
-require("dotenv").config({ path: __dirname + "/config/.env" });
+require("dotenv").config({
+  path: __dirname + `/config/.env.${process.env.NODE_ENV || "development"}`,
+});
 
 export const env = {
   app: {
