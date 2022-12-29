@@ -12,15 +12,11 @@
 git clone https://github.com/enjoy301/graphic-design-blog.git
 ```
 
-### 2. .env 파일 생성
-
-/server/src/config/.env.sample 파일을 참고하여 .env 파일 생성
-
-### 3. Docker, Docker Compose 설치
+### 2. Docker, Docker Compose 설치
 
 [docker docs - Get Docker](https://docs.docker.com/get-docker/)
 
-### 4. Docker Compose 실행
+### 3. Docker Compose 실행
 
 ```bash
 docker-compose up -d
