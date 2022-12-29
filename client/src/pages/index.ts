@@ -5,5 +5,6 @@ import About from "./about";
 import Contact from "./contact";
 import Post from "./post";
 import Write from "./write";
+import Login from "./login";
 
-export { Root, Home, Error, About, Contact, Post, Write };
+export { Root, Home, Error, About, Contact, Post, Write, Login };

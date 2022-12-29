@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Root, Home, About, Contact, Post, Error, Write } from "./pages";
+import { Root, Home, About, Contact, Post, Error, Write, Login } from "./pages";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 
@@ -34,6 +34,10 @@ const router = createBrowserRouter([
   {
     path: "/write",
     element: <Write />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
   },
 ]);
 
