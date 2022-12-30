@@ -15,6 +15,16 @@ export default function Write() {
         },
         body: JSON.stringify(data),
       })
+        .then((res) =>
+          res.json().then((data) => ({ status: res.status, data }))
+        )
+        .then((obj) => {
+          if (obj.status === 201) {
+            window.location.href = "/";
+          } else if (obj.status === 500) {
+            alert("서버 에러");
+          }
+        })
   );
 
   const handleTitleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -27,10 +37,6 @@ export default function Write() {
 
   const handleClick = () => {
     mutation.mutate({ title, subtitle: "temp subtitle", content });
-
-    if (mutation.isSuccess) {
-      alert("작성이 완료되었습니다.");
-    }
   };
 
   return (

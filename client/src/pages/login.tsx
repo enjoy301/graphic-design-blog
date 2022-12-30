@@ -17,7 +17,7 @@ export default function Login() {
       .then((res) => res.json().then((data) => ({ status: res.status, data })))
       .then((obj) => {
         if (obj.status === 200) {
-          localStorage.setItem("token", obj.data.token);
+          localStorage.setItem("id", obj.data.id);
           window.location.href = "/";
         } else if (obj.status === 401) {
           alert("아이디 혹은 비밀번호가 일치하지 않습니다.");
