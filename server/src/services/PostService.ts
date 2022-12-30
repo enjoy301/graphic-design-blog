@@ -3,6 +3,7 @@ import { PostRepository } from "../repositories/PostRepository";
 import { CreatePostDTO } from "../dtos/PostDTO";
 import { Post } from "../entities/Post";
 import { DeleteResult, UpdateResult } from "typeorm";
+import { DbError } from "../errors/DbError";
 
 @Service()
 export class PostService {
@@ -20,13 +21,18 @@ export class PostService {
     return post;
   }
 
-  public async createPost(postDTO: CreatePostDTO): Promise<UpdateResult> {
+  public async createPost(postDTO: CreatePostDTO) {
     if (postDTO.thumbnail === undefined) {
       postDTO.thumbnail =
         "https://img.freepik.com/premium-vector/summer-seascape-beach-and-ocean-illustration_71599-2676.jpg";
     }
 
-    return await this.postRepository.createPost(postDTO);
+    try {
+      const result = await this.postRepository.createPost(postDTO);
+      return result;
+    } catch (error: any) {
+      throw new DbError("Insert Error");
+    }
   }
 
   public async updatePost(

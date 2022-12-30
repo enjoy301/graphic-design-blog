@@ -1,3 +1,4 @@
+import { NotFoundError } from "routing-controllers";
 import { Inject, Service } from "typedi";
 import { LoginDTO } from "../dtos/UserDTO";
 import { UserRepository } from "../repositories/UserRepository";
@@ -11,11 +12,11 @@ export class UserService {
     const userCompare = await this.userRepository.getUser(user);
 
     if (!userCompare) {
-      throw new Error("Id or Password is incorrect");
+      throw new NotFoundError("Id or Password is incorrect");
     }
 
     if (userCompare.password !== user.password) {
-      throw new Error("Id or Password is incorrect");
+      throw new NotFoundError("Id or Password is incorrect");
     }
 
     return user;
