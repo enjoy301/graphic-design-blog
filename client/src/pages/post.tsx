@@ -10,13 +10,28 @@ export default function Post() {
     fetch(`http://localhost:3001/api/posts/${postId}`).then((res) => res.json())
   );
 
+  const handleClick = () => {
+    fetch(`http://localhost:3001/api/posts/${postId}`, {
+      method: "DELETE",
+    }).then((res) => {
+      if (res.status === 200) {
+        window.location.href = "/";
+      } else if (res.status === 500) {
+        alert("서버 에러");
+      }
+    });
+  };
+
   return (
     <S.Container>
       <S.Header>
         <S.HeaderText>Seobin Yoon</S.HeaderText>
-        <S.HeaderLink to="/">
-          <S.HeaderIcon src={home_icon} alt="home" />
-        </S.HeaderLink>
+        <S.HeaderIconBox>
+          <S.HeaderIcon src={home_icon} alt="delete" onClick={handleClick} />
+          <S.HeaderLink to="/">
+            <S.HeaderIcon src={home_icon} alt="home" />
+          </S.HeaderLink>
+        </S.HeaderIconBox>
       </S.Header>
       {status === "success" && (
         <>

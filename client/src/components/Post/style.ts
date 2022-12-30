@@ -22,11 +22,15 @@ export const Header = styled.div`
 
 export const HeaderText = styled.p``;
 
-export const HeaderLink = styled(NavLink)`
+export const HeaderIconBox = styled.div`
   display: block;
   margin-left: auto;
   width: auto;
   height: 60%;
+`;
+
+export const HeaderLink = styled(NavLink)`
+  margin-left: 10px;
 `;
 
 export const HeaderIcon = styled.img`
