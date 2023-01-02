@@ -1,31 +1,70 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { useMutation } from "react-query";
+import { useParams } from "react-router-dom";
 import * as S from "../components/Write/style";
 
 export default function Write() {
+  const { postId } = useParams<{ postId?: string }>();
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
   const mutation = useMutation(
-    (data: { title: string; subtitle: string; content: string }) =>
-      fetch("http://localhost:3001/api/posts", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      })
-        .then((res) =>
-          res.json().then((data) => ({ status: res.status, data }))
-        )
-        .then((obj) => {
-          if (obj.status === 201) {
-            window.location.href = "/";
-          } else if (obj.status === 500) {
-            alert("서버 에러");
-          }
+    (data: {
+      postId?: string;
+      title: string;
+      subtitle: string;
+      content: string;
+    }) => {
+      if (data.postId) {
+        return fetch(`http://localhost:3001/api/posts/${data.postId}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
         })
+          .then((res) =>
+            res.json().then((data) => ({ status: res.status, data }))
+          )
+          .then((obj) => {
+            if (obj.status === 200) {
+              window.location.href = "/";
+            } else {
+              alert("서버 에러");
+            }
+          });
+      } else {
+        return fetch("http://localhost:3001/api/posts", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        })
+          .then((res) =>
+            res.json().then((data) => ({ status: res.status, data }))
+          )
+          .then((obj) => {
+            if (obj.status === 201) {
+              window.location.href = "/";
+            } else {
+              alert("서버 에러");
+            }
+          });
+      }
+    }
   );
+
+  useEffect(() => {
+    if (postId) {
+      fetch(`http://localhost:3001/api/posts/${postId}`)
+        .then((res) => res.json())
+        .then((data) => {
+          setTitle(data.title);
+          setContent(data.content);
+        });
+    }
+  }, [postId]);
 
   const handleTitleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setTitle(e.target.value);
@@ -36,7 +75,7 @@ export default function Write() {
   };
 
   const handleClick = () => {
-    mutation.mutate({ title, subtitle: "temp subtitle", content });
+    mutation.mutate({ postId, title, subtitle: "temp subtitle", content });
   };
 
   return (

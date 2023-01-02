@@ -10,7 +10,11 @@ export default function Post() {
     fetch(`http://localhost:3001/api/posts/${postId}`).then((res) => res.json())
   );
 
-  const handleClick = () => {
+  const handleUpdateClick = () => {
+    window.location.href = `/write/${postId}`;
+  };
+
+  const handleDeleteClick = () => {
     fetch(`http://localhost:3001/api/posts/${postId}`, {
       method: "DELETE",
     }).then((res) => {
@@ -27,7 +31,16 @@ export default function Post() {
       <S.Header>
         <S.HeaderText>Seobin Yoon</S.HeaderText>
         <S.HeaderIconBox>
-          <S.HeaderIcon src={home_icon} alt="delete" onClick={handleClick} />
+          <S.HeaderIcon
+            src={home_icon}
+            alt="delete"
+            onClick={handleUpdateClick}
+          />
+          <S.HeaderIcon
+            src={home_icon}
+            alt="delete"
+            onClick={handleDeleteClick}
+          />
           <S.HeaderLink to="/">
             <S.HeaderIcon src={home_icon} alt="home" />
           </S.HeaderLink>
