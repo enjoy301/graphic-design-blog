@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  margin: 10% auto;
+  @media ${(props) => props.theme.mobile} {
+    margin: 0 20px;
+  }
 `;
 
 export const Input = styled.input`
@@ -10,6 +12,7 @@ export const Input = styled.input`
   border: 1px solid #ccc;
   border-radius: 5px;
   margin-bottom: 10px;
+  box-sizing: border-box;
 `;
 
 export const Button = styled.button`

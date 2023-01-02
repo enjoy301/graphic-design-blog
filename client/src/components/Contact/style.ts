@@ -2,6 +2,10 @@ import styled from "styled-components";
 
 export const ContactBox = styled.div`
   margin: 45px 90px;
+
+  @media ${(props) => props.theme.mobile} {
+    margin: 45px 20px;
+  }
 `;
 
 export const Title = styled.h1`

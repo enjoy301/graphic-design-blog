@@ -34,23 +34,25 @@ export default function Home() {
           <S.ProfileBox>
             <S.ProfileImage src={profile_image} alt="profile" />
           </S.ProfileBox>
-          <S.MenuBox>
-            <S.MenuLink
-              to="/about"
-              className={({ isActive }) => (isActive ? "active" : "")}
-            >
-              <S.MenuText>It's me</S.MenuText>
-            </S.MenuLink>
-            <S.MenuLink
-              to="/contact"
-              className={({ isActive }) => (isActive ? "active" : "")}
-            >
-              <S.MenuText>Contact</S.MenuText>
-            </S.MenuLink>
-          </S.MenuBox>
-          <S.LogoBox>
-            <S.Logo>LOGO</S.Logo>
-          </S.LogoBox>
+          <S.ExtraBox>
+            <S.MenuBox>
+              <S.MenuLink
+                to="/about"
+                className={({ isActive }) => (isActive ? "active" : "")}
+              >
+                <S.MenuText>It's me</S.MenuText>
+              </S.MenuLink>
+              <S.MenuLink
+                to="/contact"
+                className={({ isActive }) => (isActive ? "active" : "")}
+              >
+                <S.MenuText>Contact</S.MenuText>
+              </S.MenuLink>
+            </S.MenuBox>
+            <S.LogoBox>
+              <S.Logo>LOGO</S.Logo>
+            </S.LogoBox>
+          </S.ExtraBox>
         </S.SideBar>
         <S.Content>
           <Outlet />

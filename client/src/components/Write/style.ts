@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   height: 85vh;
-  width: 70vw;
+  width: 60vw;
   min-width: 250px;
   border: 5px solid black;
   box-sizing: border-box;
@@ -12,13 +12,13 @@ export const Container = styled.div`
 `;
 
 export const Header = styled.div`
-  height: 10%;
-  width: 100%;
+  height: 8%;
   font-weight: bold;
   font-size: 36px;
   display: flex;
   align-items: center;
   border-bottom: 2px solid black;
+  padding: 0 20px;
 `;
 
 export const TitleInput = styled.input`
@@ -28,12 +28,13 @@ export const TitleInput = styled.input`
   font-size: 36px;
   font-weight: bold;
   outline: none;
+  padding: 0;
 `;
 
 export const Body = styled.div`
   display: flex;
-  height: 90%;
-  width: 100%;
+  height: 84%;
+  margin: 5px 20px;
 `;
 
 export const MarkdownInput = styled.textarea`
@@ -47,7 +48,7 @@ export const MarkdownInput = styled.textarea`
 `;
 
 export const Footer = styled.div`
-  height: 10%;
+  height: 8%;
   width: 100%;
   display: flex;
   justify-content: flex-end;

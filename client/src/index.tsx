@@ -6,6 +6,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Root, Home, About, Contact, Post, Error, Write, Login } from "./pages";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
+import { ThemeProvider } from "styled-components";
+import theme from "./theme";
 
 const router = createBrowserRouter([
   {
@@ -45,8 +47,10 @@ const client = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <QueryClientProvider client={client}>
-    <RouterProvider router={router} />
-    <ReactQueryDevtools initialIsOpen={false} />
+    <ThemeProvider theme={theme}>
+      <RouterProvider router={router} />
+      <ReactQueryDevtools initialIsOpen={false} />
+    </ThemeProvider>
   </QueryClientProvider>
 );
 

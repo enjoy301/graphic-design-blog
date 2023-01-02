@@ -10,6 +10,13 @@ export const PostsContainer = styled.div`
   grid-template-rows: 50% 50%;
   grid-auto-columns: 50% 50%;
   grid-auto-rows: 50% 50%;
+
+  @media ${(props) => props.theme.mobile} {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    overflow-y: visible;
+  }
 `;
 
 export const PostLink = styled(Link)`
@@ -37,6 +44,10 @@ export const PostBox = styled.div<{ src: string }>`
   -web-kit-transition: background-size 3s ease;
   :hover {
     text-decoration: underline;
+  }
+
+  @media ${(props) => props.theme.mobile} {
+    aspect-ratio: 1;
   }
 `;
 
