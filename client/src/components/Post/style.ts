@@ -8,33 +8,65 @@ export const Container = styled.div`
   min-width: 250px;
   border: 5px solid black;
   box-sizing: border-box;
+
+  @media ${(props) => props.theme.mobile} {
+    width: 95vw;
+    height: auto;
+    min-height: 95vh;
+    margin: 20px 0;
+  }
 `;
 
 export const Header = styled.div`
   padding: 0 20px;
   height: 65px;
-  font-weight: bold;
-  font-size: 36px;
   display: flex;
   align-items: center;
   border-bottom: 2px solid black;
+
+  @media ${(props) => props.theme.mobile} {
+    padding: 0 13px;
+  }
 `;
 
-export const HeaderText = styled.p``;
+export const HeaderText = styled.p`
+  font-size: 36px;
+  font-weight: bold;
+
+  @media ${(props) => props.theme.mobile} {
+    font-size: 25px;
+  }
+`;
 
 export const HeaderIconBox = styled.div`
-  // display: flex;
   margin-left: auto;
   width: auto;
-  height: 60%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
-export const HeaderLink = styled(NavLink)``;
+export const HeaderLink = styled(NavLink)`
+  width: 50px;
+  height: 40px;
+
+  @media ${(props) => props.theme.mobile} {
+    margin: auto 0;
+    height: 35px;
+  }
+`;
 
 export const HeaderIcon = styled.img`
   width: 40px;
   height: 40px;
   margin-left: 10px;
+
+  @media ${(props) => props.theme.mobile} {
+    width: 35px;
+    height: 35px;
+    margin: auto 0 auto 7px;
+  }
 `;
 
 export const AbstractBox = styled.div`
@@ -48,25 +80,45 @@ export const AbstractBox = styled.div`
 
 export const AbstractArticleBox = styled.div`
   margin-left 40px;
+
+  @media ${(props) => props.theme.mobile} {
+    margin-left: 20px;
+  }
 `;
 
 export const AbstractTitle = styled.p`
   font-size: 30px;
   font-weight: bold;
   margin-bottom: 0;
+
+  @media ${(props) => props.theme.mobile} {
+    font-size: 25px;
+  }
 `;
 
 export const AbstractDate = styled.p`
   margin-top: 15px;
+
+  @media ${(props) => props.theme.mobile} {
+    font-size: 15px;
+  }
 `;
 
 export const AbstractAuthorBox = styled.div`
   margin: 0 30px 0 auto;
+
+  @media ${(props) => props.theme.mobile} {
+    margin: 0 20px 0 auto;
+  }
 `;
 
 export const AbstractAuthorText = styled.p`
   margin: 6px 0 6px 0;
   font-weight: light;
+
+  @media ${(props) => props.theme.mobile} {
+    font-size: 15px;
+  }
 `;
 
 export const Article = styled.div`

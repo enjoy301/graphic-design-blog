@@ -74,33 +74,34 @@ export const HeaderText = styled.p`
 `;
 
 export const HeaderIconBox = styled.div`
-  display: block;
+  display: flex;
   margin-left: auto;
   width: auto;
-  height: 60%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
 
   @media ${(props) => props.theme.mobile} {
     width: 100px;
     height: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: row;
   }
 `;
 
 export const HeaderLink = styled(NavLink)`
+  width: 40px;
+  height: 40px;
+  margin-left 10px;
+
   @media ${(props) => props.theme.mobile} {
     width: 35px;
     height: 35px;
-    margin-left 10px;
   }
 `;
 
 export const HeaderIcon = styled.img`
   width: 40px;
   height: 40px;
-  margin-left: 10px;
 
   @media ${(props) => props.theme.mobile} {
     width: 100%;
@@ -135,11 +136,17 @@ export const ProfileImage = styled.img`
 `;
 
 export const ExtraBox = styled.div`
+  display: flex;
+
   @media ${(props) => props.theme.mobile} {
-    display: flex;
     flex-direction: column;
     width: 50%;
     border-top: 1px solid black;
+  }
+
+  @media ${(props) => props.theme.desktop} {
+    flex: 1;
+    flex-direction: column;
   }
 `;
 
@@ -182,6 +189,10 @@ export const LogoBox = styled.div`
   @media ${(props) => props.theme.mobile} {
     height: 100%;
     border: none;
+  }
+
+  @media ${(props) => props.theme.desktop} {
+    height: 80px;
   }
 `;
 

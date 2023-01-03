@@ -9,12 +9,15 @@ export const Container = styled.div`
   margin: auto;
   display: flex;
   flex-direction: column;
+
+  @media ${(props) => props.theme.mobile} {
+    width: 95vw;
+    height: 95vh;
+  }
 `;
 
 export const Header = styled.div`
   height: 8%;
-  font-weight: bold;
-  font-size: 36px;
   display: flex;
   align-items: center;
   border-bottom: 2px solid black;
@@ -29,6 +32,10 @@ export const TitleInput = styled.input`
   font-weight: bold;
   outline: none;
   padding: 0;
+
+  @media ${(props) => props.theme.mobile} {
+    font-size: 30px;
+  }
 `;
 
 export const Body = styled.div`
