@@ -7,7 +7,6 @@ export const Container = styled.div`
   min-width: 250px;
   border: 5px solid black;
   box-sizing: border-box;
-  margin: auto;
 
   @media ${(props) => props.theme.mobile} {
     width: 95vw;
@@ -15,13 +14,16 @@ export const Container = styled.div`
     min-height: 95vh;
     margin: 20px 0;
   }
+
+  @media ${(props) => props.theme.desktop} {
+    width: 1000px;
+    height: 750px;
+  }
 `;
 
 export const Header = styled.div`
   padding: 0 20px;
-  height: 8%;
-  font-weight: bold;
-  font-size: 30px;
+  height: 65px;
   display: flex;
   align-items: center;
 
@@ -43,7 +45,7 @@ export const Body = styled.div`
   }
 
   @media ${(props) => props.theme.desktop} {
-    height: 92%;
+    height: 675px;
   }
 `;
 
@@ -71,6 +73,12 @@ export const Content = styled.div`
 
 export const HeaderText = styled.p`
   margin: 0;
+  font-weight: bold;
+  font-size: 36px;
+
+  @media ${(props) => props.theme.mobile} {
+    font-size: 25px;
+  }
 `;
 
 export const HeaderIconBox = styled.div`

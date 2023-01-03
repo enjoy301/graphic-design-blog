@@ -14,6 +14,12 @@ export const Container = styled.div`
     width: 95vw;
     height: 95vh;
   }
+
+  @media ${(props) => props.theme.desktop} {
+    width: 1000px;
+    height: 750px;
+    margin: calc((100vh - 750px) / 2) auto;
+  }
 `;
 
 export const Header = styled.div`
@@ -22,6 +28,10 @@ export const Header = styled.div`
   align-items: center;
   border-bottom: 2px solid black;
   padding: 0 20px;
+
+  @media ${(props) => props.theme.desktop} {
+    height: 65px;
+  }
 `;
 
 export const TitleInput = styled.input`
@@ -42,6 +52,10 @@ export const Body = styled.div`
   display: flex;
   height: 84%;
   margin: 5px 20px;
+
+  @media ${(props) => props.theme.desktop} {
+    height: 596px;
+  }
 `;
 
 export const MarkdownInput = styled.textarea`
@@ -61,6 +75,10 @@ export const Footer = styled.div`
   justify-content: flex-end;
   align-items: center;
   border-top: 2px solid black;
+
+  @media ${(props) => props.theme.desktop} {
+    height: 65px;
+  }
 `;
 
 export const SubmitButton = styled.button`

@@ -15,6 +15,12 @@ export const Container = styled.div`
     min-height: 95vh;
     margin: 20px 0;
   }
+
+  @media ${(props) => props.theme.desktop} {
+    width: 1000px;
+    height: 750px;
+    margin: calc((100vh - 750px) / 2) auto;
+  }
 `;
 
 export const Header = styled.div`
