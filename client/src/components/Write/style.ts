@@ -15,6 +15,12 @@ export const Container = styled.div`
     height: 95vh;
   }
 
+  @media ${(props) => props.theme.tablet} {
+    width: 456px;
+    height: 95vh;
+    margin: 0;
+  }
+
   @media ${(props) => props.theme.desktop} {
     width: 1000px;
     height: 750px;
@@ -44,6 +50,10 @@ export const TitleInput = styled.input`
   padding: 0;
 
   @media ${(props) => props.theme.mobile} {
+    font-size: 30px;
+  }
+
+  @media ${(props) => props.theme.tablet} {
     font-size: 30px;
   }
 `;

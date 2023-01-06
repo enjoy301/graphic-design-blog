@@ -16,6 +16,13 @@ export const Container = styled.div`
     margin: 20px 0;
   }
 
+  @media ${(props) => props.theme.tablet} {
+    width: 456px;
+    height: auto;
+    min-height: 95vh;
+    margin: 20px 0;
+  }
+
   @media ${(props) => props.theme.desktop} {
     width: 1000px;
     height: 750px;
@@ -33,6 +40,10 @@ export const Header = styled.div`
   @media ${(props) => props.theme.mobile} {
     padding: 0 13px;
   }
+
+  @media ${(props) => props.theme.tablet} {
+    padding: 0 13px;
+  }
 `;
 
 export const HeaderText = styled.p`
@@ -40,6 +51,10 @@ export const HeaderText = styled.p`
   font-weight: bold;
 
   @media ${(props) => props.theme.mobile} {
+    font-size: 25px;
+  }
+
+  @media ${(props) => props.theme.tablet} {
     font-size: 25px;
   }
 `;
@@ -61,6 +76,11 @@ export const HeaderLink = styled(NavLink)`
     margin: auto 0;
     height: 35px;
   }
+
+  @media ${(props) => props.theme.tablet} {
+    margin: auto 0;
+    height: 35px;
+  }
 `;
 
 export const HeaderIcon = styled.img`
@@ -69,6 +89,12 @@ export const HeaderIcon = styled.img`
   margin-left: 10px;
 
   @media ${(props) => props.theme.mobile} {
+    width: 35px;
+    height: 35px;
+    margin: auto 0 auto 7px;
+  }
+
+  @media ${(props) => props.theme.tablet} {
     width: 35px;
     height: 35px;
     margin: auto 0 auto 7px;
@@ -90,6 +116,10 @@ export const AbstractArticleBox = styled.div`
   @media ${(props) => props.theme.mobile} {
     margin-left: 20px;
   }
+
+  @media ${(props) => props.theme.tablet} {
+    margin-left: 20px;
+  }
 `;
 
 export const AbstractTitle = styled.p`
@@ -100,12 +130,20 @@ export const AbstractTitle = styled.p`
   @media ${(props) => props.theme.mobile} {
     font-size: 25px;
   }
+
+  @media ${(props) => props.theme.tablet} {
+    font-size: 25px;
+  }
 `;
 
 export const AbstractDate = styled.p`
   margin-top: 15px;
 
   @media ${(props) => props.theme.mobile} {
+    font-size: 15px;
+  }
+
+  @media ${(props) => props.theme.tablet} {
     font-size: 15px;
   }
 `;
@@ -116,6 +154,10 @@ export const AbstractAuthorBox = styled.div`
   @media ${(props) => props.theme.mobile} {
     margin: 0 20px 0 auto;
   }
+
+  @media ${(props) => props.theme.tablet} {
+    margin: 0 20px 0 auto;
+  }
 `;
 
 export const AbstractAuthorText = styled.p`
@@ -123,6 +165,10 @@ export const AbstractAuthorText = styled.p`
   font-weight: light;
 
   @media ${(props) => props.theme.mobile} {
+    font-size: 15px;
+  }
+
+  @media ${(props) => props.theme.tablet} {
     font-size: 15px;
   }
 `;

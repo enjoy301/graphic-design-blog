@@ -15,6 +15,14 @@ export const Container = styled.div`
     margin: 20px 0;
   }
 
+  @media ${(props) => props.theme.tablet} {
+    width: 446px;
+    height: auto;
+    min-height: 95vh;
+    margin: 20px 0;
+  }
+
+
   @media ${(props) => props.theme.desktop} {
     width: 1000px;
     height: 750px;
@@ -32,6 +40,12 @@ export const Header = styled.div`
     font-size: 25px;
     padding: 0 13px;
   }
+
+  @media ${(props) => props.theme.tablet} {
+    height: 60px;
+    font-size: 25px;
+    padding: 0 13px;
+  }
 `;
 
 export const Body = styled.div`
@@ -40,6 +54,11 @@ export const Body = styled.div`
   width: 100%;
 
   @media ${(props) => props.theme.mobile} {
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media ${(props) => props.theme.tablet} {
     display: flex;
     flex-direction: column;
   }
@@ -57,14 +76,14 @@ export const SideBar = styled.div`
   @media ${(props) => props.theme.mobile} {
     flex-direction: row;
   }
+
+  @media ${(props) => props.theme.tablet} {
+    flex-direction: row;
+  }
 `;
 
 export const Content = styled.div`
   border-top: 2px solid black;
-
-  @media ${(props) => props.theme.mobile} {
-    aspect
-  }
 
   @media ${(props) => props.theme.desktop} {
     aspect-ratio: 1;
@@ -77,6 +96,10 @@ export const HeaderText = styled.p`
   font-size: 36px;
 
   @media ${(props) => props.theme.mobile} {
+    font-size: 25px;
+  }
+
+  @media ${(props) => props.theme.tablet} {
     font-size: 25px;
   }
 `;
@@ -94,6 +117,12 @@ export const HeaderIconBox = styled.div`
     height: 30px;
     flex-direction: row;
   }
+
+  @media ${(props) => props.theme.tablet} {
+    width: 100px;
+    height: 30px;
+    flex-direction: row;
+  }
 `;
 
 export const HeaderLink = styled(NavLink)`
@@ -105,6 +134,11 @@ export const HeaderLink = styled(NavLink)`
     width: 35px;
     height: 35px;
   }
+
+  @media ${(props) => props.theme.tablet} {
+    width: 35px;
+    height: 35px;
+  }
 `;
 
 export const HeaderIcon = styled.img`
@@ -112,6 +146,13 @@ export const HeaderIcon = styled.img`
   height: 40px;
 
   @media ${(props) => props.theme.mobile} {
+    width: 100%;
+    height: 100%;
+    item-align: center;
+    margin: 0;
+  }
+
+  @media ${(props) => props.theme.tablet} {
     width: 100%;
     height: 100%;
     item-align: center;
@@ -129,6 +170,10 @@ export const ProfileBox = styled.div`
   @media ${(props) => props.theme.mobile} {
     width: 50%;
   }
+
+  @media ${(props) => props.theme.tablet} {
+    width: 50%;
+  }
 `;
 
 export const ProfileImage = styled.img`
@@ -141,12 +186,24 @@ export const ProfileImage = styled.img`
     height: 90%;
     aspect-ratio: 1;
   }
+
+  @media ${(props) => props.theme.tablet} {
+    width: 90%;
+    height: 90%;
+    aspect-ratio: 1;
+  }
 `;
 
 export const ExtraBox = styled.div`
   display: flex;
 
   @media ${(props) => props.theme.mobile} {
+    flex-direction: column;
+    width: 50%;
+    border-top: 1px solid black;
+  }
+
+  @media ${(props) => props.theme.tablet} {
     flex-direction: column;
     width: 50%;
     border-top: 1px solid black;
@@ -164,6 +221,11 @@ export const MenuBox = styled.div`
   font-size: 20px;
 
   @media ${(props) => props.theme.mobile} {
+    flex: 0;
+    border-right: none;
+  }
+
+  @media ${(props) => props.theme.tablet} {
     flex: 0;
     border-right: none;
   }
@@ -195,6 +257,11 @@ export const LogoBox = styled.div`
   align-items: center;
 
   @media ${(props) => props.theme.mobile} {
+    height: 100%;
+    border: none;
+  }
+
+  @media ${(props) => props.theme.tablet} {
     height: 100%;
     border: none;
   }

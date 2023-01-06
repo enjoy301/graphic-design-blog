@@ -1,4 +1,5 @@
 import home_icon from "../images/home-icon.png";
+import edit_icon from "../images/edit.png";
 import * as S from "../components/Post/style";
 import { MarkdownRenderer } from "../components/Post/markdown-renderer";
 import { useQuery } from "react-query";
@@ -32,8 +33,8 @@ export default function Post() {
         <S.HeaderText>Seobin Yoon</S.HeaderText>
         <S.HeaderIconBox>
           <S.HeaderIcon
-            src={home_icon}
-            alt="delete"
+            src={edit_icon}
+            alt="update"
             onClick={handleUpdateClick}
           />
           <S.HeaderIcon

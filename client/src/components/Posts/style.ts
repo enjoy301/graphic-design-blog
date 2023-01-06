@@ -17,6 +17,13 @@ export const PostsContainer = styled.div`
     min-height: 100%;
     overflow-y: visible;
   }
+
+  @media ${(props) => props.theme.tablet} {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    overflow-y: visible;
+  }
 `;
 
 export const PostLink = styled(Link)`
@@ -47,6 +54,10 @@ export const PostBox = styled.div<{ src: string }>`
   }
 
   @media ${(props) => props.theme.mobile} {
+    aspect-ratio: 1;
+  }
+
+  @media ${(props) => props.theme.tablet} {
     aspect-ratio: 1;
   }
 `;
