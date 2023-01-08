@@ -14,4 +14,9 @@ export const env = {
     password: process.env.DB_PASSWORD,
     database: process.env.DB_DATABASE,
   },
+  s3: {
+    accessKeyId: process.env.S3_ACCESS_KEY_ID,
+    secretAccessKey: process.env.S3_SECRET_ACCESS_KEY,
+    region: process.env.S3_REGION,
+  },
 };

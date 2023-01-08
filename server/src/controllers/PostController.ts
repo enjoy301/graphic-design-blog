@@ -9,10 +9,12 @@ import {
   Post,
   Put,
   Res,
+  UploadedFile,
 } from "routing-controllers";
-import Container, { Inject, Service } from "typedi";
+import { Inject, Service } from "typedi";
 import { CreatePostDTO } from "../dtos/PostDTO";
 import { PostService } from "../services/PostService";
+import { s3UploadOptions } from "../config/S3UploadOptions";
 
 @Service()
 @JsonController()
@@ -58,5 +60,14 @@ export class PostController {
   async delete(@Param("uuid") uuid: string) {
     await this.postService.deletePost(uuid);
     return "Removing post...";
+  }
+
+  @HttpCode(200)
+  @Post("/image")
+  async uploadImage(
+    @UploadedFile("image", { options: s3UploadOptions })
+    image: Express.Multer.File
+  ) {
+    return "Uploading image...";
   }
 }

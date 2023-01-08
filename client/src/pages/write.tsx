@@ -74,6 +74,39 @@ export default function Write() {
     setContent(e.target.value);
   };
 
+  const handlePaste = (event: any) => {
+    const pasteData = event.clipboardData;
+
+    for (const dataTransferItem of pasteData.items) {
+      if (dataTransferItem.type.match("^image/")) {
+        const file = dataTransferItem.getAsFile();
+        const formData = new FormData();
+        formData.append("image", file);
+
+        fetch("http://localhost:3001/api/image", {
+          method: "POST",
+          body: formData,
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            let cursorPosition = event.target.selectionStart;
+
+            let textBeforeCursorPosition = content.substring(0, cursorPosition);
+            let textAfterCursorPosition = content.substring(
+              cursorPosition,
+              content.length
+            );
+
+            setContent(
+              textBeforeCursorPosition +
+                "![이미지]('https://www.google.com/images/branding/googlelogo/2x/googlelogo_light_color_92x30dp.png')" +
+                textAfterCursorPosition
+            );
+          });
+      }
+    }
+  };
+
   const handleClick = () => {
     mutation.mutate({ postId, title, subtitle: "temp subtitle", content });
   };
@@ -91,6 +124,7 @@ export default function Write() {
         <S.MarkdownInput
           value={content}
           onChange={handleContentChange}
+          onPaste={handlePaste}
           placeholder="마크다운을 입력하세요."
         />
       </S.Body>
