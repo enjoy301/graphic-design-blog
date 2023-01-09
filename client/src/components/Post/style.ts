@@ -25,7 +25,7 @@ export const Container = styled.div`
 
   @media ${(props) => props.theme.desktop} {
     width: 1000px;
-    height: 750px;
+    min-height: 750px;
     margin: calc((100vh - 750px) / 2) auto;
   }
 `;
