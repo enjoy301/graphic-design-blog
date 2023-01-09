@@ -99,7 +99,7 @@ export default function Write() {
 
             setContent(
               textBeforeCursorPosition +
-                "![이미지]('https://www.google.com/images/branding/googlelogo/2x/googlelogo_light_color_92x30dp.png')" +
+                `![이미지](http://localhost:4566/${data})` +
                 textAfterCursorPosition
             );
           });

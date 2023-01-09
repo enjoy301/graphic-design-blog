@@ -66,8 +66,8 @@ export class PostController {
   @Post("/image")
   async uploadImage(
     @UploadedFile("image", { options: s3UploadOptions })
-    image: Express.Multer.File
+    image: any
   ) {
-    return "Uploading image...";
+    return `${image.bucket}/${image.key}`;
   }
 }
