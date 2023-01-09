@@ -22,6 +22,10 @@ git clone https://github.com/enjoy301/graphic-design-blog.git
 docker-compose up -d
 ```
 
+### 4. 블로그 접속
+
+`http://localhost:3000`
+
 ## Roadmap
 
 ---
@@ -37,6 +41,12 @@ docker-compose up -d
 ## Tech Stack
 
 ---
+
+### DevOps
+
+- Docker
+- Docker Compose
+- LocalStack
 
 ### Front-End
 
