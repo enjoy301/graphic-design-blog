@@ -9,6 +9,8 @@ const s3 = new S3({
     accessKeyId: env.s3.accessKeyId || "test",
   },
   region: env.s3.region || "ap-northeast-2",
+  endpoint: env.s3.endpoint || undefined,
+  forcePathStyle: env.s3.forcePathStyle || undefined,
 });
 
 export const s3UploadOptions = {

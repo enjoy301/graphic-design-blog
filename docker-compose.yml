@@ -31,6 +31,7 @@ services:
   server:
     depends_on:
       - my-database
+      - my-s3
     stdin_open: true
     tty: true
     container_name: graphic-blog-server
@@ -41,6 +42,16 @@ services:
       - 3001:3001
     volumes:
       - ./server/src:/app/src:ro
+
+  my-s3:
+    image: localstack/localstack
+    container_name: graphic-blog-s3
+    ports:
+      - "127.0.0.1:4566:4566" # LocalStack Gateway
+      - "127.0.0.1:4510-4559:4510-4559" # external services port range
+    environment:
+      - SERVICES=s3
+      - DOCKER_HOST=unix:///var/run/docker.sock
 
 volumes:
   mysql-volume:
