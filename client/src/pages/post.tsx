@@ -1,7 +1,7 @@
-import home_icon from "../images/home-icon.png";
-import edit_icon from "../images/edit.png";
-import * as S from "../components/Post/style";
-import { MarkdownRenderer } from "../components/Post/markdown-renderer";
+import home_icon from "@images/home-icon.png";
+import edit_icon from "@images/edit.png";
+import * as S from "@components/Post/style";
+import { MarkdownRenderer } from "@components/Post/markdown-renderer";
 import { useQuery } from "react-query";
 import { useParams } from "react-router";
 

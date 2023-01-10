@@ -1,9 +1,9 @@
-import profile_image from "../images/profile.png";
-import home_icon from "../images/home-icon.png";
-import edit_icon from "../images/edit.png";
-import { Outlet } from "react-router-dom";
-import * as S from "../components/Root/style";
 import { useEffect, useState } from "react";
+import { Outlet } from "react-router-dom";
+import profile_image from "@images/profile.png";
+import home_icon from "@images/home-icon.png";
+import edit_icon from "@images/edit.png";
+import * as S from "@components/Root/style";
 
 export default function Home() {
   const [isAdmin, setIsAdmin] = useState(false);
