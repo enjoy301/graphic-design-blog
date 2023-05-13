@@ -1,11 +1,22 @@
 import home_icon from "@images/home-icon.png";
 import edit_icon from "@images/edit.png";
+import trash_icon from "@images/trash-icon.png";
 import * as S from "@components/Post/style";
 import { MarkdownRenderer } from "@components/Post/markdown-renderer";
 import { useQuery } from "react-query";
 import { useParams } from "react-router";
+import { useEffect, useState } from "react";
 
 export default function Post() {
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  useEffect(() => {
+    const id = localStorage.getItem("id");
+    if (id) {
+      setIsAdmin(true);
+    }
+  }, []);
+
   const { postId } = useParams<{ postId: string }>();
   const { status, data } = useQuery("post", () =>
     fetch(`http://localhost:3001/api/posts/${postId}`).then((res) => res.json())
@@ -32,16 +43,20 @@ export default function Post() {
       <S.Header>
         <S.HeaderText>Seobin Yoon</S.HeaderText>
         <S.HeaderIconBox>
-          <S.HeaderIcon
-            src={edit_icon}
-            alt="update"
-            onClick={handleUpdateClick}
-          />
-          <S.HeaderIcon
-            src={home_icon}
-            alt="delete"
-            onClick={handleDeleteClick}
-          />
+          {isAdmin && (
+            <>
+              <S.HeaderIcon
+                src={edit_icon}
+                alt="update"
+                onClick={handleUpdateClick}
+              />
+              <S.HeaderIcon
+                src={trash_icon}
+                alt="delete"
+                onClick={handleDeleteClick}
+              />
+            </>
+          )}
           <S.HeaderLink to="/">
             <S.HeaderIcon src={home_icon} alt="home" />
           </S.HeaderLink>
